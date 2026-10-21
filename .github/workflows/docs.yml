@@ -33,6 +33,12 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
+      # Vite's TS transform cannot match `[...slug].vue` against docs/tsconfig's globs, so it
+      # falls back to the app's root tsconfig, which extends ./.nuxt/tsconfig.json. The app is
+      # not installed here, so give that file an empty stand-in.
+      - run: mkdir -p .nuxt && echo '{}' > .nuxt/tsconfig.json
+        working-directory: .
+
       - run: bun run generate
 
       - uses: actions/upload-pages-artifact@v4

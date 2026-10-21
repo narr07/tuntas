@@ -52,6 +52,17 @@ Uninstall programs. [Completely.]{.text-primary}
 
 ::u-page-section{class="dark:bg-neutral-950"}
 #title
+See it in action
+
+#description
+Real screens from Tuntas on a Windows 11 PC.
+
+#default
+  :screenshot-carousel
+::
+
+::u-page-section{class="dark:bg-neutral-950"}
+#title
 Cleans up properly, without breaking anything
 
 #description

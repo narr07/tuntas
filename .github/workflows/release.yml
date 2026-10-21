@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: oven-sh/setup-bun@v2
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - run: bun install --frozen-lockfile
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tauriScript: bun run tauri
+          tagName: ${{ github.ref_name }}
+          releaseName: Tuntas ${{ github.ref_name }}
+          releaseBody: |
+            Download **Tuntas_*_x64-setup.exe** below. The `.msi` is for managed deployments.
+
+            Tuntas is not code-signed yet, so Windows SmartScreen may ask you to confirm. See https://narr07.github.io/tuntas/getting-started/installation
+
+            Changes: https://github.com/narr07/tuntas/blob/main/CHANGELOG.md
+          releaseDraft: false
+          prerelease: false

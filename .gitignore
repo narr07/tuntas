@@ -1,0 +1,34 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Tauri / Rust build artifacts
+src-tauri/target
+src-tauri/gen/schemas
+
+# AI tool files
+.claude/
+.gemini/
+.codex/
+.roo/
+.agents/
+AGENTS.md
+GEMINI.md
+CLAUDE.md
+.mcp.json
+graft/

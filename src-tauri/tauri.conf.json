@@ -1,0 +1,57 @@
+{
+	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+	"productName": "Tuntas",
+	"version": "0.1.0",
+	"identifier": "com.narr07.tuntas",
+	"build": {
+		"frontendDist": "../.output/public",
+		"devUrl": "http://localhost:3000",
+		"beforeDevCommand": "bun run dev",
+		"beforeBuildCommand": "bun run generate"
+	},
+	"app": {
+		"windows": [
+			{
+				"label": "main",
+				"title": "Tuntas",
+				"width": 1340,
+				"height": 840,
+				"minWidth": 960,
+				"minHeight": 640,
+				"resizable": true,
+				"fullscreen": false
+			}
+		],
+		"security": {
+			"csp": {
+				"default-src": "'self' ipc: http://ipc.localhost",
+				"connect-src": "'self' ipc: http://ipc.localhost",
+				"img-src": "'self' data: blob:",
+				"style-src": "'self' 'unsafe-inline'",
+				"font-src": "'self' data:",
+				"script-src": "'self'"
+			}
+		}
+	},
+	"bundle": {
+		"active": true,
+		"targets": ["nsis", "msi"],
+		"publisher": "narr07",
+		"homepage": "https://narr07.github.io/tuntas/",
+		"copyright": "Copyright (c) 2026 narr07. MIT License.",
+		"category": "Utility",
+		"shortDescription": "Uninstall Windows programs completely",
+		"longDescription": "Tuntas runs a program's own uninstaller, then finds and removes the folders, shortcuts and registry keys it left behind. Deleted files go to the Recycle Bin and registry keys are backed up first.",
+		"icon": [
+			"icons/32x32.png",
+			"icons/128x128.png",
+			"icons/128x128@2x.png",
+			"icons/icon.ico"
+		],
+		"windows": {
+			"nsis": {
+				"installMode": "both"
+			}
+		}
+	}
+}

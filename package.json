@@ -1,0 +1,37 @@
+{
+	"name": "tuntas",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Uninstall Windows programs completely.",
+	"license": "MIT",
+	"repository": "github:narr07/tuntas",
+	"scripts": {
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"tauri": "tauri",
+		"desktop:dev": "tauri dev",
+		"desktop:build": "tauri build",
+		"lint": "eslint app nuxt.config.ts",
+		"lint:fix": "eslint app nuxt.config.ts --fix",
+		"typecheck": "nuxt typecheck",
+		"test:rust": "cargo test --manifest-path src-tauri/Cargo.toml"
+	},
+	"dependencies": {
+		"@nuxt/ui": "4.12.0",
+		"@tauri-apps/api": "2.12.4",
+		"@vueuse/core": "14.4.0",
+		"@vueuse/nuxt": "15.0.0",
+		"nuxt": "4.6.2"
+	},
+	"devDependencies": {
+		"@iconify-json/lucide": "1.2.147",
+		"@nuxt/eslint": "1.17.0",
+		"@tauri-apps/cli": "2.12.3",
+		"eslint": "10.13.0",
+		"typescript": "6.0.3",
+		"vue-tsc": "3.3.13"
+	}
+}
